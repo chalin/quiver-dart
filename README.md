@@ -98,6 +98,12 @@ Python's itertools.
 `min`, `max`, and `extent` retreive the minimum and maximum elements from an
 iterable.
 
+`PropertyIterable` is an easy way to create lazy iterables that traverse object
+graphs, like trees.
+
+`InfiniteIterable` is a base class for Iterables that throws on operations that
+require a finite length.
+
 [quiver.iterables]: http://google.github.io/quiver-dart/#quiver/quiver-iterables
 
 ## [quiver.mirrors][]
