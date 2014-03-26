@@ -21,6 +21,11 @@ part of quiver.iterables;
  * The class is useful for creating lazy iterables from object hierarchies and
  * graphs.
  *
+ * It's important that for the given initial value and next function that the
+ * sequence of items eventually terminates. Otherwise calling methods that
+ * expect a finite sequence, like `length` or `last`, will cause an infinite
+ * loop.
+ *
  * Example:
  *
  *     class Node {
@@ -34,22 +39,22 @@ part of quiver.iterables;
  *     }
  *
  */
-class PropertyIterable<T> extends IterableBase<T> {
+class GeneratingIterable<T> extends IterableBase<T> {
   final T object;
   final next;
 
-  PropertyIterable(T this.object, T this.next(T o));
+  GeneratingIterable(T this.object, T this.next(T o));
 
   @override
-  Iterator<T> get iterator => new _PropertyIterator(object, next);
+  Iterator<T> get iterator => new _GeneratingIterator(object, next);
 }
 
-class _PropertyIterator<T> implements Iterator<T> {
+class _GeneratingIterator<T> implements Iterator<T> {
   final next;
   T object;
   bool started = false;
 
-  _PropertyIterator(T this.object, T this.next(T o));
+  _GeneratingIterator(T this.object, T this.next(T o));
 
   @override
   T get current => started ? object : null;

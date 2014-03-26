@@ -18,22 +18,22 @@ import 'package:unittest/unittest.dart';
 import 'package:quiver/iterables.dart';
 
 main() {
-  group('PropertyIterable', () {
+  group('GeneratingIterable', () {
 
     test("should create an empty iterable for a null start object", () {
-      var iterable = new PropertyIterable(null, (n) => null);
+      var iterable = new GeneratingIterable(null, (n) => null);
       expect(iterable, []);
     });
 
     test("should create one-item empty iterable when next returns null", () {
-      var iterable = new PropertyIterable("Hello", (n) => null);
+      var iterable = new GeneratingIterable("Hello", (n) => null);
       expect(iterable, ["Hello"]);
     });
 
     test("should add items until next returns null", () {
       var parent = new Node();
       var node = new Node()..parent = parent;
-      var iterable = new PropertyIterable<Node>(node, (n) => n.parent);
+      var iterable = new GeneratingIterable<Node>(node, (n) => n.parent);
       expect(iterable, [node, parent]);
     });
 

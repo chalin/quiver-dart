@@ -21,7 +21,7 @@ import 'enumerate_test.dart' as enumerate;
 import 'merge_test.dart' as merge;
 import 'min_max_test.dart' as min_max;
 import 'partition_test.dart' as partition;
-import 'property_iterable_test.dart' as property_iterable;
+import 'generating_iterable_test.dart' as generating_iterable;
 import 'range_test.dart' as range;
 import 'zip_test.dart' as zip;
 
@@ -33,7 +33,7 @@ main() {
   merge.main();
   min_max.main();
   partition.main();
-  property_iterable.main();
+  generating_iterable.main();
   range.main();
   zip.main();
 }
